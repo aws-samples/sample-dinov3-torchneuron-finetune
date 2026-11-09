@@ -1,0 +1,39 @@
+[project]
+name = "dinov3-torchneuron-finetune"
+version = "0.1.0"
+description = "Fine-tune DINOv3 on AWS Trainium with plain PyTorch and TorchNeuron"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT-0"
+# torch is NOT listed here on purpose: on Trainium the Neuron DLAMI venv ships its own
+# torch 2.14 + torch-neuronx build, and pip-installing torch would replace it.
+dependencies = [
+    "timm==1.0.31",
+    "datasets==5.1.0",
+    "pillow==13.0.0",
+]
+
+[project.optional-dependencies]
+# CPU-only development / smoke tests off Trainium. Same torch minor as Neuron 2.33.
+cpu = [
+    "torch==2.14.0",
+    "torchvision==0.29.2",
+]
+dev = ["pytest==9.2.0"]
+
+[tool.uv]
+package = false
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["slow: launches torchrun subprocesses"]

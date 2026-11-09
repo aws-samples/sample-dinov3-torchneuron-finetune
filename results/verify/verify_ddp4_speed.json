@@ -1,0 +1,111 @@
+{
+  "args": {
+    "device": "neuron",
+    "model": "vit_small_patch16_dinov3.lvd1689m",
+    "no_pretrained": false,
+    "dataset": "pets",
+    "train_limit": null,
+    "eval_limit": null,
+    "mode": "lastn",
+    "last_n": 2,
+    "image_size": 224,
+    "batch_size": 32,
+    "epochs": 3,
+    "max_steps": 40,
+    "lr": 0.001,
+    "backbone_lr_scale": 0.1,
+    "weight_decay": 0.05,
+    "warmup_steps": 20,
+    "grad_clip": 1.0,
+    "label_smoothing": 0.1,
+    "bf16": false,
+    "compile": true,
+    "fullgraph": false,
+    "skip_eval": true,
+    "log_every": 10,
+    "warmup_timing_steps": 3,
+    "workers": 4,
+    "seed": 0,
+    "out": "/opt/dinoft/results/runs/verify_ddp4_speed",
+    "no_checkpoint": false,
+    "cache_dir": null
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "torch_neuronx": "2.14.3.0.1+b1b6c66",
+    "timm": "1.0.31",
+    "torchvision": "0.29.2+cu132",
+    "datasets": "5.1.0"
+  },
+  "world_size": 4,
+  "params_total": 21601189,
+  "params_trainable": 3563173,
+  "steps": [
+    {
+      "step": 0,
+      "epoch": 0,
+      "loss": 3.6109282970428467,
+      "grad_norm": 0.6214141845703125,
+      "lr": 0.0001,
+      "elapsed_s": 105.10406968300003
+    },
+    {
+      "step": 10,
+      "epoch": 0,
+      "loss": 3.5504705905914307,
+      "grad_norm": 0.7215979695320129,
+      "lr": 0.0006,
+      "elapsed_s": 110.68058000999986
+    },
+    {
+      "step": 20,
+      "epoch": 0,
+      "loss": 3.2649707794189453,
+      "grad_norm": 0.9004397392272949,
+      "lr": 0.0009938441702975688,
+      "elapsed_s": 111.72230209200006
+    },
+    {
+      "step": 30,
+      "epoch": 1,
+      "loss": 2.6739397048950195,
+      "grad_norm": 0.9405061602592468,
+      "lr": 0.0004217827674798845,
+      "elapsed_s": 113.04295499299997
+    },
+    {
+      "step": 39,
+      "epoch": 1,
+      "loss": 2.5543415546417236,
+      "grad_norm": 0.976104736328125,
+      "lr": 0.0,
+      "elapsed_s": 114.00258886200004
+    }
+  ],
+  "epochs": [
+    {
+      "epoch": 0,
+      "step": 28
+    },
+    {
+      "epoch": 1,
+      "step": 40
+    }
+  ],
+  "first_step_s": 99.49972664999996,
+  "cpu_fallback_ops": [],
+  "train_s": 114.00276679199987,
+  "dynamo": {
+    "stats": {
+      "calls_captured": 697,
+      "unique_graphs": 1
+    },
+    "graph_breaks": {
+      "Unsupported method call\n  Explanation: Dynamo does not know how to trace method `set_runtime_stats_and_log` of class `Logger`\n  Hint: Avoid calling `Logger.set_runtime_stats_and_log` in your code.\n  Hint: Please report an issue to PyTorch.\n\n  Developer debug context: call_method UserDefinedObjectVariable(Logger) set_runtime_stats_and_log [] {}\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0156.html": 1,
+      "Skip inlining `torch.compiler.disable()`d function\n  Explanation: Skip inlining function <function TorchMlirKernel.lower at 0x76bdc67e51c0> since it was wrapped with `torch.compiler.disable` (reason: None)\n  Hint: Remove the `torch.compiler.disable` call\n\n  Developer debug context: <function TorchMlirKernel.lower at 0x76bdc67e51c0>\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0099.html": 4,
+      "Attempted to call function marked as skipped\n  Explanation: Dynamo developers have intentionally marked that the function `DistributedDataParallel._inside_ddp_forward` in file `/opt/aws_neuronx_venv_torch_neuronx_2_14_0/lib/python3.12/site-packages/torch/_compile.py` should not be traced.\n  Hint: Avoid calling the function `DistributedDataParallel._inside_ddp_forward`.\n  Hint: Apply `@torch._dynamo.dont_skip_tracing` to the function `DistributedDataParallel._inside_ddp_forward` to force tracing into the function. More graph breaks may occur as a result of attempting to trace into the function.\n  Hint: Please file an issue to PyTorch.\n\n  Developer debug context: module: torch.nn.parallel.distributed, qualname: DistributedDataParallel._inside_ddp_forward, skip reason: file matches MOD_SKIPLIST (/opt/aws_neuronx_venv_torch_neuronx_2_14_0/lib/python3.12/site-packages/torch/_compile)\n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0007.html": 2
+    }
+  },
+  "train_images_per_s": 1162.7212557278046
+}
