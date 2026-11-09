@@ -1,0 +1,103 @@
+{
+  "args": {
+    "device": "neuron",
+    "model": "vit_base_patch16_dinov3.lvd1689m",
+    "no_pretrained": false,
+    "dataset": "pets",
+    "train_limit": null,
+    "eval_limit": null,
+    "mode": "lastn",
+    "last_n": 2,
+    "image_size": 224,
+    "batch_size": 32,
+    "epochs": 3,
+    "max_steps": 40,
+    "lr": 0.001,
+    "backbone_lr_scale": 0.1,
+    "weight_decay": 0.05,
+    "warmup_steps": 20,
+    "grad_clip": 1.0,
+    "label_smoothing": 0.1,
+    "bf16": false,
+    "compile": true,
+    "fullgraph": false,
+    "skip_eval": true,
+    "log_every": 10,
+    "warmup_timing_steps": 3,
+    "workers": 4,
+    "seed": 0,
+    "out": "/opt/dinoft/results/runs/verify_compile_b",
+    "no_checkpoint": false,
+    "cache_dir": null
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "torch_neuronx": "2.14.3.0.1+b1b6c66",
+    "timm": "1.0.31",
+    "torchvision": "0.29.2+cu132",
+    "datasets": "5.1.0"
+  },
+  "world_size": 1,
+  "params_total": 85669669,
+  "params_trainable": 14204197,
+  "steps": [
+    {
+      "step": 0,
+      "epoch": 0,
+      "loss": 3.6109306812286377,
+      "grad_norm": 1.38059401512146,
+      "lr": 0.0001,
+      "elapsed_s": 105.43591861699997
+    },
+    {
+      "step": 10,
+      "epoch": 0,
+      "loss": 3.4912331104278564,
+      "grad_norm": 1.6419527530670166,
+      "lr": 0.0006,
+      "elapsed_s": 107.24375364699995
+    },
+    {
+      "step": 20,
+      "epoch": 0,
+      "loss": 2.751216173171997,
+      "grad_norm": 2.6656196117401123,
+      "lr": 0.0009938441702975688,
+      "elapsed_s": 109.02915761299994
+    },
+    {
+      "step": 30,
+      "epoch": 0,
+      "loss": 1.8865140676498413,
+      "grad_norm": 2.4993019104003906,
+      "lr": 0.0004217827674798845,
+      "elapsed_s": 110.75553365199994
+    },
+    {
+      "step": 39,
+      "epoch": 0,
+      "loss": 1.6322249174118042,
+      "grad_norm": 1.9791579246520996,
+      "lr": 0.0,
+      "elapsed_s": 112.35265270100001
+    }
+  ],
+  "epochs": [
+    {
+      "epoch": 0,
+      "step": 40
+    }
+  ],
+  "first_step_s": 105.20637199600003,
+  "cpu_fallback_ops": [],
+  "train_s": 112.352770469,
+  "dynamo": {
+    "stats": {
+      "calls_captured": 697,
+      "unique_graphs": 1
+    },
+    "graph_breaks": {}
+  },
+  "train_images_per_s": 185.70227190656277
+}

@@ -1,0 +1,80 @@
+{
+  "checkpoint": "runs/check_train/model.pt",
+  "model": "vit_small_patch16_dinov3.lvd1689m",
+  "device": "neuron",
+  "predictions": [
+    {
+      "image": "chihuahua_1500.jpg",
+      "top": [
+        [
+          "chihuahua",
+          0.8723
+        ],
+        [
+          "shiba_inu",
+          0.0207
+        ],
+        [
+          "pomeranian",
+          0.0183
+        ]
+      ]
+    },
+    {
+      "image": "japanese_chin_2500.jpg",
+      "top": [
+        [
+          "japanese_chin",
+          0.7747
+        ],
+        [
+          "chihuahua",
+          0.0736
+        ],
+        [
+          "pomeranian",
+          0.0385
+        ]
+      ]
+    },
+    {
+      "image": "newfoundland_0.jpg",
+      "top": [
+        [
+          "newfoundland",
+          0.8646
+        ],
+        [
+          "japanese_chin",
+          0.0241
+        ],
+        [
+          "pomeranian",
+          0.0136
+        ]
+      ]
+    },
+    {
+      "image": "samoyed_500.jpg",
+      "top": [
+        [
+          "samoyed",
+          0.522
+        ],
+        [
+          "great_pyrenees",
+          0.3489
+        ],
+        [
+          "pomeranian",
+          0.0263
+        ]
+      ]
+    }
+  ],
+  "eval": {
+    "acc": 0.9285908967020987,
+    "n": 3669,
+    "images_per_s": 302.04515322881184
+  }
+}

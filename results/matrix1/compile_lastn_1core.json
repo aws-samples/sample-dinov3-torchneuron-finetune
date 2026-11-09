@@ -1,0 +1,96 @@
+{
+  "args": {
+    "device": "neuron",
+    "model": "vit_small_patch16_dinov3.lvd1689m",
+    "no_pretrained": false,
+    "dataset": "pets",
+    "train_limit": null,
+    "eval_limit": null,
+    "mode": "lastn",
+    "last_n": 2,
+    "image_size": 224,
+    "batch_size": 32,
+    "epochs": 3,
+    "max_steps": 40,
+    "lr": 0.001,
+    "backbone_lr_scale": 0.1,
+    "weight_decay": 0.05,
+    "warmup_steps": 20,
+    "grad_clip": 1.0,
+    "label_smoothing": 0.1,
+    "bf16": false,
+    "compile": true,
+    "fullgraph": false,
+    "skip_eval": true,
+    "log_every": 10,
+    "warmup_timing_steps": 3,
+    "workers": 4,
+    "seed": 0,
+    "out": "/opt/dinoft/results/runs/compile_lastn_1core",
+    "no_checkpoint": false,
+    "cache_dir": null
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "torch_neuronx": "2.14.3.0.1+b1b6c66",
+    "timm": "1.0.31",
+    "torchvision": "0.29.2+cu132",
+    "datasets": "5.1.0"
+  },
+  "world_size": 1,
+  "params_total": 21601189,
+  "params_trainable": 3563173,
+  "steps": [
+    {
+      "step": 0,
+      "epoch": 0,
+      "loss": 3.610935688018799,
+      "grad_norm": 0.9942513108253479,
+      "lr": 0.0001,
+      "elapsed_s": 203.846704069
+    },
+    {
+      "step": 10,
+      "epoch": 0,
+      "loss": 3.574272871017456,
+      "grad_norm": 1.0822144746780396,
+      "lr": 0.0006,
+      "elapsed_s": 204.60581319999994
+    },
+    {
+      "step": 20,
+      "epoch": 0,
+      "loss": 3.402167320251465,
+      "grad_norm": 1.3824926614761353,
+      "lr": 0.0009938441702975688,
+      "elapsed_s": 205.34600956199995
+    },
+    {
+      "step": 30,
+      "epoch": 0,
+      "loss": 3.0417656898498535,
+      "grad_norm": 1.4641635417938232,
+      "lr": 0.0004217827674798845,
+      "elapsed_s": 206.11170726
+    },
+    {
+      "step": 39,
+      "epoch": 0,
+      "loss": 2.8654747009277344,
+      "grad_norm": 1.361223816871643,
+      "lr": 0.0,
+      "elapsed_s": 206.78822347999994
+    }
+  ],
+  "epochs": [
+    {
+      "epoch": 0,
+      "step": 40
+    }
+  ],
+  "first_step_s": 203.661545896,
+  "cpu_fallback_ops": [],
+  "train_s": 206.788340985,
+  "train_images_per_s": 438.0826002086029
+}

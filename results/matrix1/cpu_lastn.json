@@ -1,0 +1,95 @@
+{
+  "args": {
+    "device": "cpu",
+    "model": "vit_small_patch16_dinov3.lvd1689m",
+    "no_pretrained": false,
+    "dataset": "pets",
+    "train_limit": null,
+    "eval_limit": null,
+    "mode": "lastn",
+    "last_n": 2,
+    "image_size": 224,
+    "batch_size": 32,
+    "epochs": 3,
+    "max_steps": 8,
+    "lr": 0.001,
+    "backbone_lr_scale": 0.1,
+    "weight_decay": 0.05,
+    "warmup_steps": 20,
+    "grad_clip": 1.0,
+    "label_smoothing": 0.1,
+    "bf16": false,
+    "compile": false,
+    "fullgraph": false,
+    "skip_eval": true,
+    "log_every": 2,
+    "warmup_timing_steps": 3,
+    "workers": 2,
+    "seed": 0,
+    "out": "/opt/dinoft/results/runs/cpu_lastn",
+    "no_checkpoint": false,
+    "cache_dir": null
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "torch_neuronx": "2.14.3.0.1+b1b6c66",
+    "timm": "1.0.31",
+    "torchvision": "0.29.2+cu132",
+    "datasets": "5.1.0"
+  },
+  "world_size": 1,
+  "params_total": 21601189,
+  "params_trainable": 3563173,
+  "steps": [
+    {
+      "step": 0,
+      "epoch": 0,
+      "loss": 3.610933542251587,
+      "grad_norm": 0.9942514300346375,
+      "lr": 0.0001,
+      "elapsed_s": 10.806709677999834
+    },
+    {
+      "step": 2,
+      "epoch": 0,
+      "loss": 3.6089823246002197,
+      "grad_norm": 1.208092451095581,
+      "lr": 0.0002,
+      "elapsed_s": 17.01874485899998
+    },
+    {
+      "step": 4,
+      "epoch": 0,
+      "loss": 3.606618881225586,
+      "grad_norm": 0.9614192843437195,
+      "lr": 0.0003,
+      "elapsed_s": 23.24974607199988
+    },
+    {
+      "step": 6,
+      "epoch": 0,
+      "loss": 3.6016998291015625,
+      "grad_norm": 1.1314533948898315,
+      "lr": 0.0004,
+      "elapsed_s": 29.53031357099985
+    },
+    {
+      "step": 7,
+      "epoch": 0,
+      "loss": 3.5813658237457275,
+      "grad_norm": 1.0452919006347656,
+      "lr": 0.00045000000000000004,
+      "elapsed_s": 32.663070688999824
+    }
+  ],
+  "epochs": [
+    {
+      "epoch": 0,
+      "step": 8
+    }
+  ],
+  "first_step_s": 10.64443127200002,
+  "train_s": 32.66315208899982,
+  "train_images_per_s": 12.757265212905013
+}
