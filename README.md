@@ -200,8 +200,8 @@ in the next section, right after cloning.
 ## 4. Clone the code and run the tests
 
 ```bash
-git clone https://github.com/giryoong-kim/samples-dinov3-torchneuron-finetune.git
-cd samples-dinov3-torchneuron-finetune
+git clone https://github.com/aws-samples/sample-dinov3-torchneuron-finetune.git
+cd sample-dinov3-torchneuron-finetune
 bash scripts/install_neuron_deps.sh --dev     # --dev adds pytest
 export PYTHONPATH=$PWD/src
 ```
@@ -355,7 +355,7 @@ rm -rf /tmp/neff_cache /tmp/hlo_cache /tmp/local_cache  # default compile caches
 ```
 
 When you are done, **terminate the instance** to stop billing. Copy anything you want to keep first,
-for example `scp -r ubuntu@<host>:samples-dinov3-torchneuron-finetune/runs .`:
+for example `scp -r ubuntu@<host>:sample-dinov3-torchneuron-finetune/runs .`:
 
 ```bash
 aws ec2 terminate-instances --region $REGION --instance-ids <instance-id>
